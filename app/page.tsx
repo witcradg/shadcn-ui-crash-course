@@ -25,6 +25,9 @@ interface Recipe {
 // json-server --watch ./_data/db.json --port 4000
 async function getRecipes(): Promise<Recipe[]> {
   const result = await fetch('http://localhost:4000/recipes')
+
+  await new Promise((resolve) => setTimeout(resolve, 3000))
+  
   return result.json()
 }
 
